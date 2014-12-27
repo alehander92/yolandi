@@ -32,6 +32,6 @@ defmodule Yolandi.Mixfile do
   #
   # Type `mix help deps` for more examples and options
   defp deps do
-    [{:bencoder, "~> 0.0.2"}]
+    [{:bencoder, "~> 0.0.4"}]
   end
 end
