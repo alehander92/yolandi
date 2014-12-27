@@ -23,12 +23,12 @@ defmodule Yolandi.Tracker do
     torrent["info"] |> Bencoder.encode |> check_sum
   end
 
-  @spec generate_query(Map.t, Client) :: String
+  @spec generate_query(Map.t, ClientData) :: String
   def generate_query(torrent, client) do
 
     q = %{
       "port"       => @listening_port,
-      "info_hash"  => Client.info_hash,
+      "info_hash"  => ClientData.info_hash,
       "uploaded"   => 0,
       "event"      => "started",
       "left"       => to_string(remaining(torrent)),

@@ -2,12 +2,14 @@ defmodule Yolandi.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :yolandi,
-     version: "0.0.1",
-     elixir: "~> 1.0.0",
-     package: package,
-     description: "a mini console torrent client in elixir",
-     deps: deps]
+    [ app: :yolandi,
+      version: "0.0.1",
+      elixir: "~> 1.0.0",
+      package: package,
+      description: "a mini console torrent client in elixir",
+      deps: deps,
+      escript: [
+          main_module: Yolandi]]
   end
 
   defp package do
