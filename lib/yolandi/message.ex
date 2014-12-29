@@ -43,9 +43,25 @@ defmodule Yolandi.Message do
   returns a message keyword list and the unparsed part of the message
 
   """
-  @spec parse(binary) :: {Keyword.t, binary}
+  @spec parse(binary) :: {List.Keyword.t, binary}
+  def parse_messages(message) do
+    << l :: 32-integer-big-unsigned, rest :: binary >> = message
+    cond
+      byte_size(rest) < l ->
+        {[], binary}
+      true ->
+        {[], binary}
+        # parse message until the end and return a list of them
+    end
+  end
+
+  def parse_messages(message, acc) do
+    # parse message and add it to acc
+  end
+
   def parse(message) do
     << l :: 32-integer-big-unsigned, rest :: binary >> = message
+
     if l == 0 do
       {[type: :keep_alive], rest}
     else
