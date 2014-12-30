@@ -3,7 +3,7 @@ defmodule Yolandi.Mixfile do
 
   def project do
     [ app: :yolandi,
-      version: "0.0.1",
+      version: "0.0.2",
       elixir: "~> 1.0.0",
       package: package,
       description: "a mini console torrent client in elixir",
@@ -34,6 +34,7 @@ defmodule Yolandi.Mixfile do
   #
   # Type `mix help deps` for more examples and options
   defp deps do
-    [{:bencoder, "~> 0.0.7"}]
+    [{:bencoder, "~> 0.0.7"},
+     {:wire, "~> 0.0.8"}]
   end
 end

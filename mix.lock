@@ -1,1 +1,2 @@
-%{"bencoder": {:hex, :bencoder, "0.0.7"}}
+%{"bencoder": {:hex, :bencoder, "0.0.7"},
+  "wire": {:hex, :wire, "0.0.8"}}

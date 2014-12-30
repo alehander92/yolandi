@@ -9,7 +9,13 @@ defmodule Yolandi.Tracker do
 
   @spec remaining(Map.t) :: Integer
   defp remaining(torrent) do
-    torrent["info"]["length"]
+    if "length" in Map.keys torrent do
+      torrent["info"]["length"]
+    else
+      Enum.reduce torrent["info"]["files"], 0, fn (f, acc) ->
+        acc + f["length"]
+      end
+    end
   end
 
   @spec check_sum(binary) :: binary

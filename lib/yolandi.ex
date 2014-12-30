@@ -5,7 +5,7 @@ defmodule Yolandi do
     GenServer.start_link(__MODULE__, state)
   end
 
-  def init(state) do
+  def init(_) do
   end
 
   @doc """
@@ -20,7 +20,7 @@ defmodule Yolandi do
 
 
   """
-  def download(torrent_path) do
+  def download(torrent_path \\ "movies/misfits") do
     :inets.start
 
     { peers, client } = torrent_path |> read_torrent |> Yolandi.Tracker.get_tracker_response
@@ -31,7 +31,9 @@ defmodule Yolandi do
   defp read_torrent(torrent_path) do
     { ok, content }  = File.read(torrent_path)
     if ok == :ok do
-      Bencoder.decode(content)
+      e = Bencoder.decode(content)
+      IO.puts inspect(e)
+      e
     else
       raise Yolandi.YolandiError, message: "torrent file not found"
     end
