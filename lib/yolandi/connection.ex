@@ -60,7 +60,7 @@ defmodule Yolandi.Connection do
   end
 
   defp process_buf(buf, info) do
-    {messages, q} = Message.decode_messages(buf)
+    {messages, q} = Wire.decode_messages(buf)
     IO.puts "k #{length(messages)}"
     {Enum.reduce(messages, info, &act_message/2), q}
   end
@@ -81,7 +81,7 @@ defmodule Yolandi.Connection do
         IO.puts "partner unchoke me"
         info = Keyword.put info, :peer_chocking, false
         # for part <- parts do
-        # :gen_tcp.send(socket, Message.to_bytes([type: :request, begin: 0, end: 16, s: part]))
+        # :gen_tcp.send(socket, Wire.e([type: :request, begin: 0, end: 16, s: part]))
       :have ->
         IO.puts "partner has something #{message[:piece_index]}"
         # parts = parts ++ [message[:piece_index]]
