@@ -1,2 +1,3 @@
 %{"bencoder": {:hex, :bencoder, "0.0.7"},
+  "tracker_request": {:hex, :tracker_request, "0.0.4"},
   "wire": {:hex, :wire, "0.0.8"}}

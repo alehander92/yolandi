@@ -17,24 +17,13 @@ defmodule Yolandi.Mixfile do
       links: %{"Github" => "https://github.com/alehander42/yolandi"}]
   end
 
-  # Configuration for the OTP application
-  #
-  # Type `mix help compile.app` for more information
   def application do
     [applications: [:logger]]
   end
 
-  # Dependencies can be Hex packages:
-  #
-  #   {:mydep, "~> 0.3.0"}
-  #
-  # Or git/path repositories:
-  #
-  #   {:mydep, git: "https://github.com/elixir-lang/mydep.git", tag: "0.1.0"}
-  #
-  # Type `mix help deps` for more examples and options
   defp deps do
     [{:bencoder, "~> 0.0.7"},
-     {:wire, "~> 0.0.8"}]
+     {:wire, "~> 0.0.8"},
+     {:tracker_request, "~> 0.0.4"}]
   end
 end

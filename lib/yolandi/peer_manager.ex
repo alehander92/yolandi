@@ -24,7 +24,7 @@ defmodule Yolandi.PeerManager do
   end
 
   def start_peers(peers, client) do
-    a = [client, Yolandi.Tracker.listening_port]
+    a = [client, Yolandi.listening_port]
     for peer <- peers do
       Supervisor.start_child(Yolandi.PeerManager.Supervisor, [peer | a])
     end
